@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Detalle_del_pedido__c</members>
+		<members>Pedido__c</members>
+		<members>Producto__c</members>
+		<name>CustomObject</name>
+	</types>
+	<version>63.0</version>
+</Package>
