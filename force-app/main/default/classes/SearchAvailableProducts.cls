@@ -5,8 +5,8 @@
  * @last modified by  : Fernando M. Acosta P.
  * @Descripción       : Clase apex para la consulta de productos disponibles
  **/
-public with sharing class SearchAvailableProducts {
-    @AuraEnabled
+public without sharing class SearchAvailableProducts {
+    @AuraEnabled(cacheable=true)
     public static List<Producto__c> getProducts(){
         try {
             List<Producto__c> products = [SELECT Id, Name, Descripcion__c, Precio__c, Imagen__c FROM Producto__c WHERE Status__c = true];

@@ -8,11 +8,18 @@
 <template>
     <div class="main-container">
         <div class="product-container">
-            <div class="product-image">
-                <!-- <img src={product.ImageUrl} alt={product.Name} /> -->
-                <div class="product-name">Nombre</div>
-                <div class="product-price">Price</div>
-                <div class="product-description">Description</div>
+            <img src={imageOfProduct} alt={nameOfProduct} />
+            <div class="product-details">
+                <div class="product-name-container">
+                    <div class="product-name">{nameOfProduct}</div>
+                    <div class="product-price">$ {priceOfProduct}</div>
+                </div>
+                <div class="product-description">{descriptionOfProduct}</div>
+            </div>
+            <div class="product-quantity-container">
+                <button class={btnStyleDecrease} onclick={decreaseQuantity}>-</button>
+                <div class="product-quantity">{quantityOfProduct}</div>
+                <button class={btnStyleIncrease} onclick={increaseQuantity}>+</button>
             </div>
         </div>
     </div>

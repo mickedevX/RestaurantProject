@@ -3,20 +3,33 @@
  * @Equipo            : CRM
  * @last modified on  : 03-12-2025
  * @last modified by  : Fernando M. Acosta P.
- * @Descripción       : Componente o clase apex ...
+ * @Descripción       : Componente para representar un producto en la página de detalle de pedido
 **/
-import { LightningElement } from 'lwc';
-import getProducts from '@salesforce/apex/SearchAvailableProducts.getProducts';
-
+import { LightningElement, api } from 'lwc';
 export default class ProductComponent extends LightningElement {
-    products = [];
+    @api nameOfProduct;
+    @api priceOfProduct;
+    @api descriptionOfProduct;
+    @api imageOfProduct;
+    @api isAvailable;
+    btnStyleDecrease = 'btn-off';
+    btnStyleIncrease = 'btn-on';
+    quantityOfProduct = 1;
 
-    async connectedCallback(){
-        try {
-            this.products = await getProducts();
-            console.log('products', this.products);
-        } catch (error) {
-            console.error('Error al obtener productos:', error);
+    decreaseQuantity(){
+        if(this.quantityOfProduct > 1) {
+            this.quantityOfProduct--;
+            this.btnStyleDecrease = 'btn-on';
+            this.btnStyleIncrease = 'btn-on';
+        } else {
+            this.btnStyleDecrease = 'btn-off';
+            this.btnStyleIncrease = 'btn-on';
         }
+    }
+    
+    increaseQuantity(){
+        this.quantityOfProduct++;
+        this.btnStyleDecrease = 'btn-on';
+        this.btnStyleIncrease = 'btn-on';
     }
 }

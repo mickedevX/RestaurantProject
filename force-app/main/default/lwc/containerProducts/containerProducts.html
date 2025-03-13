@@ -1,0 +1,17 @@
+<!--
+  @author            : Fernando M. Acosta P.
+  @Equipo            : CRM
+  @last modified on  : 03-12-2025
+  @last modified by  : Fernando M. Acosta P.
+  @Descripción       : LWC que contiene la lista de componente productComponent
+-->
+<template>
+  <template for:each={listaProductos} for:item="producto">
+    <c-product-component key={producto.id} 
+                        name-of-product={producto.name} 
+                        price-of-product={producto.price}
+                        description-of-product={producto.description}
+                        image-of-product={producto.image}></c-product-component>
+</template>
+
+</template>
