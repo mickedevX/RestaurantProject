@@ -6,12 +6,12 @@
   @Descripción       : LWC que contiene la lista de componente productComponent
 -->
 <template>
-  <template for:each={listaProductos} for:item="producto">
-    <c-product-component key={producto.id} 
-                        name-of-product={producto.name} 
-                        price-of-product={producto.price}
-                        description-of-product={producto.description}
-                        image-of-product={producto.image}></c-product-component>
+  <template for:each={listaProductos} for:item="prd">
+    <c-product-component key={prd.id} 
+                        name-of-product={prd.name} 
+                        price-of-product={prd.price}
+                        description-of-product={prd.description}
+                        image-of-product={prd.image}></c-product-component>
 </template>
 
 </template>

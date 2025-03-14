@@ -22,9 +22,14 @@ export default class ContainerProducts extends LightningElement {
     @wire(getProducts)
     wiredProducts({ error, data }) {
         if (data) {
+            // La función map() crea un nuevo array transformando cada elemento del array original
+            // En este caso, por cada producto en data:
+            // 1. Toma los campos del objeto Producto__c (Id, Name, Precio__c, etc)
+            // 2. Crea un nuevo objeto con propiedades renombradas (id, name, price, etc)
+            // 3. Almacena el array resultante en this.listaProductos
             this.listaProductos = data.map(producto => ({
                 id: producto.Id,
-                name: producto.Name,
+                name: producto.Name, 
                 price: producto.Precio__c,
                 description: producto.Descripcion__c,
                 image: producto.Imagen__c
